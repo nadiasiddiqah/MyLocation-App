@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096C37C5255A1A2600053A43 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */; };
 		09DF7A92254BE6AF0045E636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A91254BE6AF0045E636 /* AppDelegate.swift */; };
 		09DF7A94254BE6AF0045E636 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A93254BE6AF0045E636 /* SceneDelegate.swift */; };
 		09DF7A96254BE6AF0045E636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A95254BE6AF0045E636 /* ViewController.swift */; };
@@ -14,10 +15,10 @@
 		09DF7A9E254BE6B20045E636 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DF7A9C254BE6B20045E636 /* LaunchScreen.storyboard */; };
 		09DF7AA8254BE6C60045E636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DF7AA7254BE6C60045E636 /* Main.storyboard */; };
 		09DF7AAD254BE6D50045E636 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */; };
-		09DF7AAE254BE6D50045E636 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7AAC254BE6D50045E636 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		09DF7A8E254BE6AF0045E636 /* MyLocation_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocation_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DF7A91254BE6AF0045E636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09DF7A93254BE6AF0045E636 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		09DF7A9F254BE6B20045E636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09DF7AA7254BE6C60045E636 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		09DF7AAC254BE6D50045E636 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +41,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A462AB255602BA007049F9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				09DF7A95254BE6AF0045E636 /* ViewController.swift */,
+				09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */,
+				096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		09DF7A85254BE6AF0045E636 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +72,11 @@
 			children = (
 				09DF7A91254BE6AF0045E636 /* AppDelegate.swift */,
 				09DF7A93254BE6AF0045E636 /* SceneDelegate.swift */,
-				09DF7A95254BE6AF0045E636 /* ViewController.swift */,
 				09DF7AA7254BE6C60045E636 /* Main.storyboard */,
 				09DF7A9A254BE6B20045E636 /* Assets.xcassets */,
 				09DF7A9C254BE6B20045E636 /* LaunchScreen.storyboard */,
 				09DF7A9F254BE6B20045E636 /* Info.plist */,
-				09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */,
-				09DF7AAC254BE6D50045E636 /* SecondViewController.swift */,
+				09A462AB255602BA007049F9 /* ViewControllers */,
 			);
 			path = MyLocation_App;
 			sourceTree = "<group>";
@@ -146,8 +154,8 @@
 				09DF7A96254BE6AF0045E636 /* ViewController.swift in Sources */,
 				09DF7AAD254BE6D50045E636 /* CurrentLocationViewController.swift in Sources */,
 				09DF7A92254BE6AF0045E636 /* AppDelegate.swift in Sources */,
-				09DF7AAE254BE6D50045E636 /* SecondViewController.swift in Sources */,
 				09DF7A94254BE6AF0045E636 /* SceneDelegate.swift in Sources */,
+				096C37C5255A1A2600053A43 /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
