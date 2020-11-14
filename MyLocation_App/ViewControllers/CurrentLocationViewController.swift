@@ -30,6 +30,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var lastGeocodingError: Error?
     
     var timer: Timer?
+    
+    // MARK: - UIKit's Navigation Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationsDetailViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+        }
+    }
 
     // MARK: - UIViewController Methods
     override func viewDidLoad() {

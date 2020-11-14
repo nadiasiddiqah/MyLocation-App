@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		096C37C5255A1A2600053A43 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */; };
+		096C37C8255E13E500053A43 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */; };
 		09DF7A92254BE6AF0045E636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A91254BE6AF0045E636 /* AppDelegate.swift */; };
 		09DF7A94254BE6AF0045E636 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A93254BE6AF0045E636 /* SceneDelegate.swift */; };
 		09DF7A96254BE6AF0045E636 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7A95254BE6AF0045E636 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		09DF7A8E254BE6AF0045E636 /* MyLocation_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocation_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DF7A91254BE6AF0045E636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09DF7A93254BE6AF0045E636 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 				09DF7A95254BE6AF0045E636 /* ViewController.swift */,
 				09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */,
 				096C37C4255A1A2600053A43 /* LocationDetailsViewController.swift */,
+				096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096C37C8255E13E500053A43 /* CategoryPickerViewController.swift in Sources */,
 				09DF7A96254BE6AF0045E636 /* ViewController.swift in Sources */,
 				09DF7AAD254BE6D50045E636 /* CurrentLocationViewController.swift in Sources */,
 				09DF7A92254BE6AF0045E636 /* AppDelegate.swift in Sources */,
