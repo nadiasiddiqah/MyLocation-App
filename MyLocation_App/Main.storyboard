@@ -264,16 +264,6 @@
             </objects>
             <point key="canvasLocation" x="2510" y="-565"/>
         </scene>
-        <!--SecondViewController-->
-        <scene sceneID="TXF-m0-gRt">
-            <objects>
-                <viewController id="Nsv-Do-dZf" userLabel="SecondViewController" customClass="TagLocationViewController" customModule="MyLocation_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="1gT-By-Ffo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w7H-Vx-8rG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="172"/>
-        </scene>
         <!--CurrentLocationViewController-->
         <scene sceneID="7fe-3P-asg">
             <objects>
@@ -379,6 +369,80 @@
             </objects>
             <point key="canvasLocation" x="910.14492753623199" y="-563.83928571428567"/>
         </scene>
+        <!--Locations-->
+        <scene sceneID="Fqk-tH-EcI">
+            <objects>
+                <tableViewController id="nO0-5I-MhV" customClass="LocationsViewController" customModule="MyLocation_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ujA-bG-966">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="58" id="NtD-C3-HF6" customClass="LocationCell" customModule="MyLocation_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="58"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NtD-C3-HF6" id="K4T-TJ-QIZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZV-Cb-rBa">
+                                            <rect key="frame" x="20" y="33.666666666666664" width="374" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-fD-8bE">
+                                            <rect key="frame" x="20" y="7.6666666666666679" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CZV-Cb-rBa" firstAttribute="top" secondItem="9dV-fD-8bE" secondAttribute="bottom" constant="5" id="5r6-4K-5q1"/>
+                                        <constraint firstItem="9dV-fD-8bE" firstAttribute="top" secondItem="K4T-TJ-QIZ" secondAttribute="top" constant="7.5" id="CYN-cZ-BNd"/>
+                                        <constraint firstAttribute="trailing" secondItem="CZV-Cb-rBa" secondAttribute="trailing" constant="20" symbolic="YES" id="EtK-Eg-kTo"/>
+                                        <constraint firstItem="9dV-fD-8bE" firstAttribute="leading" secondItem="K4T-TJ-QIZ" secondAttribute="leading" constant="20" symbolic="YES" id="W5I-iB-a7H"/>
+                                        <constraint firstAttribute="trailing" secondItem="9dV-fD-8bE" secondAttribute="trailing" constant="20" symbolic="YES" id="ebd-Ga-1Aa"/>
+                                        <constraint firstItem="CZV-Cb-rBa" firstAttribute="leading" secondItem="K4T-TJ-QIZ" secondAttribute="leading" constant="20" symbolic="YES" id="t9m-1Q-U73"/>
+                                        <constraint firstAttribute="bottom" secondItem="CZV-Cb-rBa" secondAttribute="bottom" constant="7.5" id="w9b-ou-Fke"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="CZV-Cb-rBa" id="uIh-JB-W6F"/>
+                                    <outlet property="descriptionLabel" destination="9dV-fD-8bE" id="h6p-ew-ecc"/>
+                                    <segue destination="orT-qa-S4n" kind="show" identifier="EditLocation" id="Ren-sk-nkm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nO0-5I-MhV" id="nud-3g-xXU"/>
+                            <outlet property="delegate" destination="nO0-5I-MhV" id="5dY-yj-Jiz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Locations" id="dBf-TT-RJt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="289-xl-QGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908.69565217391312" y="270.53571428571428"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="SDR-JO-mSs">
+            <objects>
+                <navigationController id="3ft-pb-nzH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locations" id="tdT-A5-Puz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="shJ-O1-6co">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nO0-5I-MhV" kind="relationship" relationship="rootViewController" id="9f5-oB-AWE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vf8-zs-1A4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="271"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="16E-vf-Z6s">
             <objects>
@@ -390,7 +454,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="x4i-qf-btD" kind="relationship" relationship="viewControllers" id="Aka-4z-fsx"/>
-                        <segue destination="Nsv-Do-dZf" kind="relationship" relationship="viewControllers" id="lJB-eQ-TYs"/>
+                        <segue destination="3ft-pb-nzH" kind="relationship" relationship="viewControllers" id="6jU-D1-S5m"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ekx-Lx-KUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -417,6 +481,9 @@
             <point key="canvasLocation" x="0.0" y="-563.83928571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="r2J-v0-wM4"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

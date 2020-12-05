@@ -25,17 +25,54 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }()
 
     lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+    
+    // MARK: - Helper Methods
+    func listenForFatalCoreDataNotifications() {
+        NotificationCenter.default.addObserver(forName: CoreDataSaveFailedNotification,
+            object: nil, queue: OperationQueue.main) { (notification) in
+            
+            let message = """
+            There was a fatal error in the app and it cannot continue.
 
+            Press OK to terminate the app. Sorry for the inconvenience.
+            """
+            
+            let alert = UIAlertController(title: "Internal Error",
+                                          message: message,
+                                          preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK",
+                                       style: .default) { _ in
+                let exception = NSException(
+                    name: NSExceptionName.internalInconsistencyException,
+                    reason: "Fatal Core Data Error", userInfo: nil)
+                exception.raise()
+            }
+            alert.addAction(action)
+        
+            let tabController = self.window!.rootViewController!
+            tabController.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    // MARK: - Scene Methods
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let tabController = window!.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
-            let navController = tabViewControllers[0] as! UINavigationController
-            let viewController = navController.viewControllers.first as! CurrentLocationViewController
-            viewController.managedObjectContext = managedObjectContext
+            // First tab
+            var navController = tabViewControllers[0] as! UINavigationController
+            let viewController1 = navController.viewControllers.first as! CurrentLocationViewController
+            viewController1.managedObjectContext = managedObjectContext
+            // Second tab
+            navController = tabViewControllers[1] as! UINavigationController
+            let viewController2 = navController.viewControllers.first as! LocationsViewController
+            viewController2.managedObjectContext = managedObjectContext
         }
+        print(applicationDocumentsDirectory)
+        listenForFatalCoreDataNotifications()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

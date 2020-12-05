@@ -20,13 +20,28 @@ private let dateFormatter: DateFormatter = {
 
 class LocationsDetailViewController: UITableViewController {
     
-    // MARK: - Instance and Reference variables
+    // MARK: - Instance variables
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     
     var categoryName = "No Category"
+    var date = Date()
     
     var managedObjectContext: NSManagedObjectContext!
+    
+    var descriptionText = ""
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                coordinate = CLLocationCoordinate2D(latitude: location.latitude,
+                                                    longitude: location.longitude)
+                placemark = location.placemark
+                categoryName = location.category
+                date = location.date
+                descriptionText = location.locationDescription
+            }
+        }
+    }
     
     // MARK: - Outlets
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -40,16 +55,20 @@ class LocationsDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+        
         let gestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
         
-        descriptionTextView.text = ""
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         if let placemark = placemark {
             addressLabel.text = string(from: placemark)
         } else {
@@ -114,13 +133,37 @@ class LocationsDetailViewController: UITableViewController {
     @IBAction func done() {
         let hudView = HudView.hud(inView: navigationController!.view,
                                   animated: true)
-        hudView.text = "Tagged"
         
-        // Add delay btwn methods
-        afterDelay(0.6) {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
+        let location: Location
+        
+        if let temp = locationToEdit {
+            // Edit Location object
+            hudView.text = "Updated"
+            location = temp
+        } else {
+            // Add Location object
+            hudView.text = "Tagged"
+            location = Location(context: managedObjectContext)
         }
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.date = date
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+            fatalCoreDataError(error)
+            hudView.hide()
+        }
+        
     }
     
     @IBAction func cancel() {
