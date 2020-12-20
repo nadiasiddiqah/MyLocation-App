@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		091C2C56256F3BE6005038E2 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C2C55256F3BE6005038E2 /* LocationsViewController.swift */; };
+		092734E4258F29F4006E54F4 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092734E3258F29F4006E54F4 /* UIImage+Resize.swift */; };
 		093CDB13257869AA007288F4 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093CDB12257869AA007288F4 /* LocationCell.swift */; };
 		096C37C5255A1A2600053A43 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C37C4255A1A2600053A43 /* LocationDetailViewController.swift */; };
 		096C37C8255E13E500053A43 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */; };
@@ -23,11 +24,12 @@
 		09DF7A9E254BE6B20045E636 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DF7A9C254BE6B20045E636 /* LaunchScreen.storyboard */; };
 		09DF7AA8254BE6C60045E636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DF7AA7254BE6C60045E636 /* Main.storyboard */; };
 		09DF7AAD254BE6D50045E636 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */; };
-		09FD2AC2257ABD8F001B8B3F /* NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2AC1257ABD8F001B8B3F /* NSFetchedResultsControllerDelegate.swift */; };
+		09FD2AC5257B612F001B8B3F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD2AC4257B612F001B8B3F /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		091C2C55256F3BE6005038E2 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		092734E3258F29F4006E54F4 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		093CDB12257869AA007288F4 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		096C37C4255A1A2600053A43 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		09DF7A9F254BE6B20045E636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09DF7AA7254BE6C60045E636 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		09FD2AC1257ABD8F001B8B3F /* NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFetchedResultsControllerDelegate.swift; sourceTree = "<group>"; };
+		09FD2AC4257B612F001B8B3F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +68,8 @@
 				09DF7AAB254BE6D50045E636 /* CurrentLocationViewController.swift */,
 				096C37C4255A1A2600053A43 /* LocationDetailViewController.swift */,
 				096C37C7255E13E500053A43 /* CategoryPickerViewController.swift */,
-				099A2A0E2568BD11005486F9 /* HudView.swift */,
 				091C2C55256F3BE6005038E2 /* LocationsViewController.swift */,
+				09FD2AC4257B612F001B8B3F /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -99,11 +101,12 @@
 				09DF7A9A254BE6B20045E636 /* Assets.xcassets */,
 				09DF7A9C254BE6B20045E636 /* LaunchScreen.storyboard */,
 				09DF7A9F254BE6B20045E636 /* Info.plist */,
+				099A2A0E2568BD11005486F9 /* HudView.swift */,
 				09A462AB255602BA007049F9 /* ViewControllers */,
 				0979DF6E2568C13000089148 /* Functions.swift */,
 				0979DF712568C1CE00089148 /* DataModel.xcdatamodeld */,
 				093CDB12257869AA007288F4 /* LocationCell.swift */,
-				09FD2AC1257ABD8F001B8B3F /* NSFetchedResultsControllerDelegate.swift */,
+				092734E3258F29F4006E54F4 /* UIImage+Resize.swift */,
 			);
 			path = MyLocation_App;
 			sourceTree = "<group>";
@@ -184,13 +187,14 @@
 				09DF7AAD254BE6D50045E636 /* CurrentLocationViewController.swift in Sources */,
 				0979DF6F2568C13000089148 /* Functions.swift in Sources */,
 				093CDB13257869AA007288F4 /* LocationCell.swift in Sources */,
-				09FD2AC2257ABD8F001B8B3F /* NSFetchedResultsControllerDelegate.swift in Sources */,
 				099A2A0F2568BD11005486F9 /* HudView.swift in Sources */,
 				09DF7A92254BE6AF0045E636 /* AppDelegate.swift in Sources */,
+				092734E4258F29F4006E54F4 /* UIImage+Resize.swift in Sources */,
 				0979DF7C2568C63C00089148 /* SceneDelegate.swift in Sources */,
 				0979DF732568C1CE00089148 /* DataModel.xcdatamodeld in Sources */,
 				0979DF772568C2D400089148 /* Location+CoreDataClass.swift in Sources */,
 				096C37C5255A1A2600053A43 /* LocationDetailViewController.swift in Sources */,
+				09FD2AC5257B612F001B8B3F /* MapViewController.swift in Sources */,
 				091C2C56256F3BE6005038E2 /* LocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5GN2KM3ZR;
 				INFOPLIST_FILE = MyLocation_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5GN2KM3ZR;
 				INFOPLIST_FILE = MyLocation_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

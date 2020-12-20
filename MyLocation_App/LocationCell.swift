@@ -12,8 +12,16 @@ class LocationCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     // MARK: - Helper Methods
+    func thumbnail(for location: Location) -> UIImage {
+        if location.hasPhoto, let image = location.photoImage {
+            return image.resize(withBounds: CGSize(width: 52, height: 52))
+        }
+        return UIImage()
+    }
+    
     func configure(for location: Location) {
         if location.locationDescription.isEmpty {
             descriptionLabel.text = "(No Description)"
@@ -38,6 +46,8 @@ class LocationCell: UITableViewCell {
                                        location.latitude,
                                        location.longitude)
         }
+        
+        photoImageView.image = thumbnail(for: location)
     }
     
     // MARK: - Table View Cell Methods
